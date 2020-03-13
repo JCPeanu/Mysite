@@ -15,7 +15,7 @@ class Student:
     def bmi(self):
         return self.weight / ((self.height / 100) ** 2)
     def info(self):
-        fmt = '{:<10}{:<10}{:<10}{:<10}{:<10}{:10}'
+        fmt = '{:<10}{:<10}{:<10}{:<10}{:<10}{:<10}'
         return fmt.format(self.sid, self.name, self.gender, self.height, self.weight, round(self.bmi(), 2))
 class BMIReport:
     name = 'unknwon'
