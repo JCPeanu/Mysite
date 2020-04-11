@@ -9,6 +9,9 @@
     <h3>{{ subtitle }}</h3>
 
     <h4>My Cart (Total: {{ total }})</h4>
+    <h3>
+        <a href="/cart/edit">Edit Cart</a>
+    </h3>
     {% if cart | length > 0%}
     <table style = 'width:200px; border: 1px solid black;'>
         <tr>
@@ -23,7 +26,7 @@
                 <td style = 'border: 1px solid black;'>{{ prod.name }}</td>
                 <td style = 'border: 1px solid black;'>{{ prod.price }}</td>
                 <td style = 'border: 1px solid black;'>{{ item.num }}</td>
-                <td style = 'border: 1px solid black;'>{{subtotal}}</td>
+                <td style = 'border: 1px solid black;'>{{ subtotal }}</td>
             </tr>
         {% endfor %}
     </table>
