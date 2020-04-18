@@ -25,7 +25,8 @@ products = {
 
 cart = [
   {"id": "sku01", "num": 5 },
-  {"id": "sku03", "num": 3}
+  {"id": "sku02", "num": 3},
+  {"id": "sku03", "num": 10}
 ]
 
 @app.route("/")
@@ -36,8 +37,9 @@ def hello():
     for item in cart:
         prod = products.get(item['id'])
         total += prod['price'] * item['num']
-    subtotal = 0
-    subtotal += prod['price'] * item['num']
+        #subtotal = 0
+        subtotal = prod['price'] * item['num']
+        item['subtotal'] = subtotal
 
     return render_template('shop.html', title = title, 
     subtitle = subtitle, products = products, cart = cart, total = total, subtotal = subtotal)
@@ -72,3 +74,14 @@ def edit(id):
             return redirect('/product/' + id)
 
     return render_template('product-edit.html', product=prod, errors = errors)
+@app.route('/cart/edit', methods = ['GET', 'POST'])
+def editcart():
+    if request.method == "POST":
+        pen = int(request.form['pen'])
+        cart[0]['num'] = pen
+        cup = int(request.form['cup'])
+        cart[1]['num'] = cup
+        notebook = int(request.form['notebook'])
+        cart[2]['num'] = notebook
+        return redirect('/')
+    return render_template('cart-edit.html', cart = cart, product = {}, errors = {})

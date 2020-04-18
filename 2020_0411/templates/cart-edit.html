@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MyShop - {{product.name}} - Edit</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <h1><a href="/">MyShop</a></h1>
+    </h1>
+
+    <form action="/cart/edit" method="post">
+        <div>
+          <label for="pen">Pen:</label>
+          <input id="pen" type="text" name="pen" value="{{cart[0].get['num']}}">
+          {% if errors['pen'] %}
+          <div>{{errors['pen']}}</div>
+          {% endif %}
+        </div>
+        <div>
+          <label for="cup">Cup:</label>
+          <input id = "cup" type = "text" name = "cup" value = "{{cart[1].get['num']}}">
+          {% if errors['desc'] %}
+          <div>{{errors['desc']}}</div>
+          {% endif %}
+        </div>
+        <div>
+          <label for="notebook">Notebook:</label>
+          <input id = "notebook" type = "text" name = "notebook" value = "{{cart[2].get['num']}}">
+          {% if errors['desc'] %}
+          <div>{{errors['desc']}}</div>
+          {% endif %}
+        </div>
+        
+        <p><button type="submit">Submit</button></p>
+    </form>
+  </body>
+</html>
