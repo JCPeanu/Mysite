@@ -40,7 +40,7 @@ def listProducts(conn, where):
 def getProducts(conn):
     c = conn.cursor()
     sql = """SELECT id, name, price, qty
-           FROM products
+           FROM products    
           """
     c.execute(sql)
     return c.fetchall()
@@ -70,7 +70,7 @@ def test():
     #insertProduct(conn, 'Card', 20, 20)
     #insertProduct(conn, 'Zipper', 5, 30)
     #insertProduct(conn, 'Hoody', 120, 5)
-    delete_by_id(conn, 50)
+    delete_by_id(conn, 9)
     listProducts(conn, 'price < 100000')
     update_product_price(conn, 1, 200, 50)
     conn.close()

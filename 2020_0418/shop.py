@@ -13,4 +13,7 @@ def hello():
 
     conn = sqlite3.connect('myshop.db')
     pds = mydb.getProducts(conn)
-    return render_template('shop.html', title = title, products = pds)
+    total = 0
+    for pd in pds:
+        total += pd[2] * pd[3]
+    return render_template('shop.html', title = title, products = pds, total = total)
