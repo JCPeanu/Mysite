@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block main_wrapper %}
+<div class = 'container'>
+    <h1>Sign Up</h1>
+    <form action = '/signup' method = "POST">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Username</label>
+            <input type="text" class="form-control" id="username" name = "username">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Name</label>
+            <input type="text" class="form-control" id="name" name = "name">
+          </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" id="email" name = "email">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" id="password" name = "password">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Confirm Passowrd</label>
+            <input type="password" class="form-control" id="conpassword" name = "conpassword">
+          </div>
+        {% if password_error %}
+        <small id="passwordhelp" class="form-text text-muted">Those password didn't match. Please try again.</small>
+        {% endif %}
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+</div>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block main_wrapper %}
+<div class = "container">
+    <h1>Profile</h1>
+    <h4>Username = {{user.get('username')}}</h4>
+    <h4>Name = {{user.get('name')}}</h4>
+    <h4>Email Address = {{user.get('email')}}</h4>
+</div>
+{% endblock %}
