@@ -1,0 +1,40 @@
+{%extends 'base.html'%}
+
+
+    {%block main%}
+      <section class="jumbotron text-center">
+        <div class="container">
+          <h1>Products</h1>
+          <p class="lead text-muted">List of Products</p>
+          <p>
+            <a href="#" class="btn btn-primary my-2">Main call to action</a>
+            <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+          </p>
+        </div>
+      </section>
+   
+      <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="card-deck mb-3 text-center">
+            {% for key, pd in products.items()%}
+            <div class="card mb-4 shadow-sm">
+                <img src="{{pd.src}}" class="card-img-top" alt="..." style = "height:300px; width:300px">
+                <div class="card-header">
+                  <h4 class="my-0 font-weight-normal">{{pd.name}}</h4>
+                </div>
+                <div class="card-body">
+                  <h1 class="card-title pricing-card-title">$NTD{{pd.price}}</h1>
+                  <p>
+                      {{pd.desc}}
+                  </p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <a href = '/product/{{pd.id}}'class="btn btn-sm btn-outline-secondary">View</a>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            {%endfor%}
+            </div>
+            {%endblock%}
