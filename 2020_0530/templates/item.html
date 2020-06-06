@@ -1,0 +1,16 @@
+{%extends 'base.html'%}
+{% block main_wrapper %}
+<div class = "container">
+    <h1>{{item.name}}</h1>   
+    <div class="media">
+        <img src="/static/upload/{{item.filename}}" class="mr-3" alt="hahaha" style = "height:200px">
+        <div class="media-body">
+          <h4>Price ${{item.price}}</h4>
+          <p>
+              {{item.desc}}
+          </p>
+          <a href = "/add-cart/{{item.id}}" type="button" class="btn btn-dark">Add to cart</a>
+        </div>
+      </div>
+</div>
+{% endblock %}

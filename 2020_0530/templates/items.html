@@ -7,6 +7,7 @@
     </div>
     <div class = "row">
         {% for item in items %}
+        {% if item.username == user.get('username') %}
         <div class = 'col-md-3'>
         <div class="card">
             <img src="/static/upload/{{item.filename}}" class="card-img-top">
@@ -14,11 +15,11 @@
               <h5 class="card-title">{{ item.name }}</h5>
               <p class="card-text">{{ item.price }}</p>
               <p class="card-text">{{ item.desc }}</p>
-              <h6>{{user_map[item.username].name}}</h6>
               <a href="/item/{{item.item_id}}" class="btn btn-primary">Detail</a>
             </div>
           </div>
         </div>
+        {% endif %}
         {% endfor %}
     </div>
 </div>

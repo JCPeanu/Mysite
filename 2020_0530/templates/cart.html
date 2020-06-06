@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block main_wrapper %}
+<div class="container">
+    <div class="card-deck mb-3 text-center">
+    <h2>Cart</h2>
+    <table class="table">
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th scope="col">#id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Num</th>
+            <th scope="col">Subtotal</th>
+            <th>Remove</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for id, num in mycart.items() %}
+            {% set it = items_id %}
+          <tr>
+            <td>
+                <img src = "{{/static/upload/{{ item.filename }}" style = "height:100px; width:100px">
+            </td>
+            <th scope="row">{{id}}</th>
+            <td>{{it.name}}</td>
+            <td>{{it.price}}</td>
+            <td>{{num}}</td>
+            <td>{{it.price * num}}</td>
+            <td>
+                <a href = "/remove-cart/{{id}}" type="button" class = "btn btn-danger">Remove</a>
+            </td>
+          </tr>
+          {%endfor%}
+        </tbody>
+      </table>
+      <hr>
+      <h4>Total: {{total}}</h4>
+</div>
+{% endblock %}
