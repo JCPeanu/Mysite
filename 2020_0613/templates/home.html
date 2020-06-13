@@ -1,0 +1,93 @@
+{% extends './base.html' %}
+
+{% block css_head %}
+<style>
+    .square:hover{
+        background-color:aqua;
+    }
+</style>
+{% endblock %}
+
+{% block main_wrapper %}
+<div class = 'container'>
+    <h1>JavaScript</h1>
+    <h1>Counter: <span id="counter">null</span></h1>
+    <h1>Double: <span id="double">null</span></h1>
+    <button onclick="incr();">Increment</button>
+    <button onclick="doub();">Double</button>
+    <button onclick="reset();">Reset</button>
+    <button onclick="BgBlack()">BgBlack</button>
+    <hr>
+    <table class="table" style = 'font-size: 24px;'>
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col" style = "width: 25%;">1</th>
+            <th scope="col" style = "width: 25%;">2</th>
+            <th scope="col" style = "width: 25%;">3</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td class = "square">None</td>
+            <td class = "square">None</td>
+            <td class = "square">None</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td class = square>None</td>
+            <td class = square>None</td>
+            <td class = square>None</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td class = square>None</td>
+            <td class = square>None</td>
+            <td class = square>None</td>
+          </tr>
+        </tbody>
+      </table>
+    <script>
+    var cnt = 0;
+      var colors = ['red', 'green', 'blue'];
+      function incr() {
+        cnt++;
+        $('#counter')
+          .html(cnt)
+          .css('color', colors[cnt%3]);
+      }
+    var cnt2 = 0
+      var colors = ['red', 'green', 'blue'];
+      function doub() {
+        cnt++;
+        $('#double')
+            .html(cnt*2)
+            .css('color', colors[cnt%3])
+      }
+    function reset(){
+        cnt = 0;
+        $('#counter')
+            .html(cnt)
+            .css('color', colors[cnt%3])
+        cnt2 = 0
+        $('#double')
+            .html(cnt)
+            .css('color', colors[cnt%3])
+    }
+    var colors2 = ['black', 'white']
+    var colors3 = ['white', 'black']
+    function BgBlack(){
+        cnt++;
+        $('h1').css('background-color', colors2[cnt%2]).css('color', colors3[cnt%2])
+    }
+    var text = ['O', 'X']
+    $('td').click(sizeChange);
+    function sizeChange(){
+        cnt++
+        $(this).css('font-size', '32').html(text[cnt%2])
+    }
+    </script>
+    
+</div>
+{% endblock %}

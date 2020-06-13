@@ -158,6 +158,7 @@ def itemview(item_id):
 @app.route('/items')
 def viewitems():
     get_user()
+    '''items = [it for it in items_db if it['username'] == g.user['username']]'''
     return render_template('items.html', user = g.user, items = items_db, user_map = users_db)
 
 @app.route('/cart')
